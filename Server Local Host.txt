@@ -1,0 +1,37 @@
+1️-Easiest Method — Python (Recommended) => CMD then python -m http.server  => http://localhost:8000
+
+
+Most computers already have Python installed.
+Step 1 — Open your project folder
+Go to the folder containing your portal files (for example):
+PP_II/
+ ├ index.html
+ ├ components/
+ ├ documents/
+ ├ css/
+ ├ js/
+
+Step 2 — Open a terminal in that folder
+=======================================
+On Windows:
+
+1.	Open the folder in File Explorer.
+2.	Click the address bar.
+3.	Type: cmd
+Press Enter.
+________________________________________
+Step 3 — Start the server
+
+Type:
+
+python -m http.server
+
+You will see something like:
+Serving HTTP on 0.0.0.0 port 8000
+________________________________________
+Step 4 — Open your browser
+Go to:
+http://localhost:8000
+Now your portal will run like a real website.
+Your menu loader will work:
+fetch("components/menu.html")

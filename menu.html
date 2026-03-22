@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        function go(page) {
+            parent.loadPage(page);
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial;
+            background: #1e1e2f;
+            color: white;
+        }
+
+        .group-title {
+            cursor: pointer;
+            color: #ff4d4d;
+            margin-top: 10px;
+        }
+
+        .submenu {
+            display: none;
+            margin-left: 10px;
+        }
+
+        a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+        }
+
+        a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            padding: 6px;
+        }
+    </style>
+
+    <script>
+        function toggle(id) {
+            var el = document.getElementById(id);
+            el.style.display = el.style.display === "block" ? "none" : "block";
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <!-- A -->
+    <div class="group-title" onclick="toggle('A')">A - Guides & Structure -</div>
+    <div id="A" class="submenu">
+        <a href="#" onclick="parent.loadPage('pages/Short_Guide.html'); return false;">A1-📜 Quick Guid</a>
+        <!-- <a href="#" onclick="parent.loadPage('pages/A1.html')">A1-P&P Guide</a> -->
+        <!-- <a href="#" onclick="parent.loadPage('pages/A2.html')">A2-P&P Structure</a> -->
+        <!-- <a href="#" onclick="parent.loadPage('pages/process_map.html')">A3-P&P Map</a> -->
+        <a href="#" onclick="parent.loadPage('pages/process_map.html'); return false;">A3-⚙ Process Map </a>
+    </div>
+
+    <!-- B L0 -->
+    <div class="group-title" onclick="toggle('B')">B - Core Processes (L0)</div>
+    <div id="B" class="submenu">
+
+        <a onclick="parent.loadPage('pages/L0_1.html')">1. Investment & Portfolio Strategy</a>
+        <a onclick="parent.loadPage('pages/L0_2.html')">2. Investment Execution</a>
+        <a onclick="parent.loadPage('pages/L0_3.html')">3. Leasing & Revenue Management</a>
+        <a onclick="parent.loadPage('pages/L0_4.html')">4. Tenant Lifecycle</a>
+        <a onclick="parent.loadPage('pages/L0_5.html')">5. Asset Operations & FM</a>
+        <a onclick="parent.loadPage('pages/L0_6.html')">6. CAPEX & Projects</a>
+
+    </div>
+
+    <!-- C -->
+    <div class="group-title" onclick="toggle('C')">C - Governance & Control</div>
+    <div id="C" class="submenu">
+        <a>Risk Management</a>
+        <a>Compliance</a>
+        <a>Internal Audit</a>
+        <a>Legal</a>
+    </div>
+
+    <!-- D -->
+    <div class="group-title" onclick="toggle('D')">D - Shared Services</div>
+    <div id="D" class="submenu">
+        <a>HR</a>
+        <a>IT / SAP</a>
+        <a>Finance</a>
+        <a>Procurement</a>
+    </div>
+
+    <!-- E -->
+    <div class="group-title" onclick="toggle('E')">E - Resources</div>
+    <div id="E" class="submenu">
+        <a onclick="parent.loadPage('resources/forms.html')">Forms & Templates</a>
+        <a onclick="parent.loadPage('resources/sap.html')">SAP Modules</a>
+        <a href="#" onclick="parent.loadPage('pages/process_map.html'); return false;">📊 Process Map</a>
+    </div>
+
+</body>
+
+</html>

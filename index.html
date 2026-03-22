@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Script calling pages into the right block  -->
+    <script>
+        function loadPage(page) {
+            var frame = document.getElementById("mainFrame");
+
+            if (frame) {
+                frame.src = page;
+            } else {
+                console.error("mainFrame not found");
+            }
+        }
+    </script>
+
+    <meta charset="UTF-8">
+    <title>RAM Portal</title>
+
+    <!-- end script calling pages -->
+    <meta charset="UTF-8">
+    <title>RAM Policies & Procedures Portal</title>
+    <style>
+        :root {
+            --ram-dark-blue: #1f3a5f;
+            /* consistent dark blue */
+        }
+
+        /* GENERAL */
+        body {
+            margin: 0;
+            font-family: Arial;
+        }
+
+        /* HEADER */
+        header {
+            background: var(--ram-dark-blue);
+            color: white;
+            padding: 12px 20px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--ram-dark-blue);
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* TOP MENU */
+        .menu {
+            background: #3b6ea5;
+            /* lighter blue */
+            padding: 10px;
+        }
+
+        .menu a {
+            color: white;
+            margin-right: 15px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+    </style>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+        }
+
+        header {
+            background: #ffffff;
+            padding: 10px;
+            border-bottom: 2px solid #ccc;
+            display: flex;
+            align-items: center;
+        }
+
+        header img {
+            height: 60px;
+            margin-right: 15px;
+        }
+
+        header h2 {
+            color: #0b2545;
+        }
+
+        .topmenu {
+            background: #2c3e50;
+            color: white;
+            padding: 10px;
+        }
+
+        .topmenu a {
+            color: white;
+            margin-right: 20px;
+            text-decoration: none;
+        }
+
+        .container {
+            display: flex;
+            height: 80vh;
+        }
+
+        .sidebar {
+            width: 280px;
+            background: #1e1e2f;
+        }
+
+        .content {
+            flex: 1;
+        }
+
+        footer {
+            background: #09192f;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+
+    <script>
+        function loadPage(page) {
+            document.getElementById("mainFrame").src = page;
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <header>
+        <img src="assets/logo.png">
+        <h2>RAM Policies and Procedures Manual and Knowledge Hub</h2>
+    </header>
+
+    <!-- HORIZONTAL MENU -->
+    <div class="topmenu">
+
+        <!-- FILE -->
+        <a href="#">File</a>
+
+        <!-- EDIT -->
+        <a href="#">Edit</a>
+
+        <!-- VIEW -->
+        <a href="#">View</a>
+
+        <!-- BUILDING BLOCKS -->
+        <a href="#" onclick="loadPage('pages/building_blocks.html')">Building Blocks</a>
+
+        <!-- HELP -->
+        <a href="#" onclick="loadPage('pages/help.html')">Help</a>
+
+        <!-- ABOUT -->
+        <a href="#" onclick="loadPage('pages/about.html')">About</a>
+
+        <!-- HOME -->
+        <a href="index.html">Home</a>
+
+    </div>
+
+    <div class="container">
+
+        <!-- LEFT MENU -->
+        <div class="sidebar">
+            <iframe src="menu.html" style="width:100%; height:100%; border:none;"></iframe>
+        </div>
+
+        <!-- RIGHT CONTENT (THIS IS WHERE mainFrame GOES) -->
+        <div class="content">
+            <iframe id="mainFrame" src="pages/home.html" style="width:100%; height:100%; border:none;">
+            </iframe>
+        </div>
+
+    </div>
+    <!-- FOOTER -->
+    <footer>
+        <a href="index.html" style="color:white;">Home Page</a> |
+        RAM Governance Portal | RAM-PROC-00
+    </footer>
+
+</body>
+
+</html>
