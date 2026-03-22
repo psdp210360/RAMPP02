@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 20px;
+            background: #f4f6f8;
+            color: #2c3e50;
+        }
+
+        /* HEADER */
+        .hero {
+            background: #1f3a5f;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .hero h1 {
+            margin: 0;
+        }
+
+        /* BUTTONS */
+        .actions {
+            margin-top: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #3b6ea5;
+            color: white;
+            padding: 8px 14px;
+            margin-right: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: #2c3e50;
+        }
+
+        /* GRID */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        /* CARDS */
+        .card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+            border-left: 5px solid #1f3a5f;
+        }
+
+        .card:hover {
+            background: #eaf1f8;
+        }
+
+        /* SMALL CARDS */
+        .quick {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .quick .card {
+            flex: 1;
+            text-align: center;
+            border-left: none;
+            background: #ffffff;
+        }
+
+        /* KPI */
+        .kpi {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .kpi-box {
+            flex: 1;
+            background: #1f3a5f;
+            color: white;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+        }
+    </style>
+
+    <script>
+        function go(page) {
+            parent.loadPage(page);
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <!-- HERO -->
+    <div class="hero">
+        <h1>RAM Policies & Procedures Portal</h1>
+        <p>
+            A centralized knowledge hub for Real Asset Management processes, governance,
+            and operational excellence.
+        </p>
+
+        <div class="actions">
+            <span class="btn" onclick="go('pages/process_map.html')">📊 Explore Process Map</span>
+            <span class="btn" onclick="go('pages/L0_1.html')">🚀 Start with Core Processes</span>
+        </div>
+    </div>
+
+    <!-- KPI SNAPSHOT -->
+    <div class="kpi">
+        <div class="kpi-box">
+            <h2>17</h2>
+            <p>L0 Domains</p>
+        </div>
+        <div class="kpi-box">
+            <h2>68+</h2>
+            <p>L1 Processes</p>
+        </div>
+        <div class="kpi-box">
+            <h2>150+</h2>
+            <p>Templates</p>
+        </div>
+        <div class="kpi-box">
+            <h2>SAP</h2>
+            <p>Integrated Modules</p>
+        </div>
+    </div>
+
+    <!-- QUICK LINKS -->
+    <div class="quick">
+        <div class="card" onclick="go('pages/process_map.html')">📊 Process Map</div>
+        <div class="card" onclick="go('resources/forms.html')">📁 Forms Library</div>
+        <div class="card" onclick="go('resources/sap.html')">⚙ SAP Modules</div>
+        <div class="card" onclick="go('pages/building_blocks.html')">🧩 Building Blocks</div>
+    </div>
+
+    <!-- L0 CARDS -->
+    <h2 style="margin-top:25px;">Core Process Domains (L0)</h2>
+
+    <div class="grid">
+
+        <div class="card" onclick="go('pages/L0_1.html')">📊 Investment Strategy</div>
+        <div class="card" onclick="go('pages/L0_2.html')">💼 Investment Execution</div>
+        <div class="card" onclick="go('pages/L0_3.html')">🏢 Leasing & Revenue</div>
+        <div class="card" onclick="go('pages/L0_4.html')">👥 Tenant Lifecycle</div>
+        <div class="card" onclick="go('pages/L0_5.html')">⚙ Asset Operations</div>
+        <div class="card" onclick="go('pages/L0_6.html')">🏗 CAPEX & Projects</div>
+        <div class="card" onclick="go('pages/L0_7.html')">💰 Finance</div>
+        <div class="card" onclick="go('pages/L0_8.html')">📦 Procurement</div>
+        <div class="card" onclick="go('pages/L0_9.html')">🛡 Risk & Compliance</div>
+        <div class="card" onclick="go('pages/L0_10.html')">⚖ Legal</div>
+        <div class="card" onclick="go('pages/L0_11.html')">📈 Data & Analytics</div>
+        <div class="card" onclick="go('pages/L0_12.html')">💡 Customer Experience</div>
+        <div class="card" onclick="go('pages/L0_13.html')">👨‍💼 HR</div>
+        <div class="card" onclick="go('pages/L0_14.html')">💻 IT / ERP</div>
+        <div class="card" onclick="go('pages/L0_15.html')">📂 Administration</div>
+        <div class="card" onclick="go('pages/L0_16.html')">📣 Marketing</div>
+        <div class="card" onclick="go('pages/L0_17.html')">🤝 Stakeholders</div>
+
+    </div>
+
+</body>
+
+</html>
