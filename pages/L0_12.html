@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+body {font-family:Arial;margin:20px;background:#f4f6f8;}
+.header {background:#1f3a5f;color:white;padding:15px;border-radius:6px;}
+.grid {display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-top:15px;}
+.card {background:white;padding:12px;border-radius:6px;cursor:pointer;}
+.card:hover {background:#eaf1f8;}
+</style>
+<script>
+function go(p){parent.loadPage(p);}
+</script>
+</head>
+<body>
+
+<div class="header">
+<h2>12. Customer Experience & Digital Services</h2>
+<p>Key processes under this domain</p>
+</div>
+
+<div class="card" onclick="go('process_map.html')">🔙 Back to Process Map</div>
+
+<div class="grid">
+<div class='card'>12.1 Tenant Portal Management</div>
+<div class='card'>12.2 Feedback Management</div>
+<div class='card'>12.3 Digital Service Delivery</div>
+</div>
+
+</body>
+</html>
