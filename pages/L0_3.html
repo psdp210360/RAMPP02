@@ -1,35 +1,63 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<style>
-body {font-family:Arial;margin:20px;background:#f4f6f8;}
-.header {background:#1f3a5f;color:white;padding:15px;border-radius:6px;}
-.grid {display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-top:15px;}
-.card {background:white;padding:12px;border-radius:6px;cursor:pointer;}
-.card:hover {background:#eaf1f8;}
-</style>
-<script>
-function go(p){parent.loadPage(p);}
-</script>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial;
+            margin: 20px;
+            background: #f4f6f8;
+        }
+
+        .header {
+            background: #1f3a5f;
+            color: white;
+            padding: 15px;
+            border-radius: 6px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .card {
+            background: white;
+            padding: 12px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            background: #eaf1f8;
+        }
+    </style>
+    <script>
+        function go(p) { parent.loadPage(p); }
+    </script>
 </head>
+
 <body>
 
-<div class="header">
-<h2>3. Leasing & Revenue Management</h2>
-<p>Key processes under this domain</p>
-</div>
+    <div class="header">
+        <h2>3. Commercial Management (Leasing, Sales & Marketing)</h2>
+        <h2>Purpose: Generate revenue from assets</h2>
+        <p>Key processes under this domain</p>
+    </div>
 
-<div class="card" onclick="go('process_map.html')">🔙 Back to Process Map</div>
+    <div class="card" onclick="go('index.html')">🔙 Back to Process Map</div>
 
-<div class="grid">
-<div class='card'>3.1 Property Marketing</div>
-<div class='card'>3.2 Lead Management</div>
-<div class='card'>3.3 Tenant Screening</div>
-<div class='card'>3.4 Lease Negotiation</div>
-<div class='card'>3.5 Lease Contracting</div>
-<div class='card'>3.6 Lease Administration</div>
-</div>
+    <div class="grid">
+        <div class='card'>3.1 Marketing & demand generation/div>
+            <div class='card'>3.2 Leasing (contracts, renewals)</div>
+            <div class='card'>3.3 Tenant Screening</div>
+            <div class='card'>3.4 Sales (if applicable)</div>
+            <div class='card'>3.5 Pricing & occupancy optimization</div>
+        </div>
 
 </body>
+
 </html>
