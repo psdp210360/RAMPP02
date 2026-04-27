@@ -67,56 +67,99 @@
     </style>
     <!-- PASS CODE PASS CODEPASS CODE PASS CODEPASS CODE PASS CODEPASS CODE PASS CODE  -->
     <script>
+        /* ================================
+           RAM PORTAL ACCESS CONTROL v2.0
+        ================================ */
+
+        const RAM_CONFIG = {
+            PASSKEY: "RAMPP01",
+            EXPIRY_HOURS: 24,
+            MAX_ATTEMPTS: 5,
+            LOCK_TIME_MINUTES: 10
+        };
+
+        /* ===== CHECK ACCESS ===== */
         function checkPass() {
             const input = document.getElementById("passkey").value.trim();
+            const errorMsg = document.getElementById("errorMsg");
 
-            if (input === "RAMPP01") {
-                localStorage.setItem("ram_access", "granted");
+            let attempts = parseInt(localStorage.getItem("ram_attempts")) || 0;
+            let lockTime = localStorage.getItem("ram_lock");
 
-                document.getElementById("introOverlay").style.opacity = "0";
-                setTimeout(() => {
-                    document.getElementById("introOverlay").style.display = "none";
-                }, 400);
+            // 🔒 Check if locked
+            if (lockTime && Date.now() < lockTime) {
+                errorMsg.innerText = "Too many attempts. Try later.";
+                errorMsg.style.display = "block";
+                return;
+            }
+
+            if (input === RAM_CONFIG.PASSKEY) {
+
+                // ✅ SUCCESS
+                localStorage.setItem("ram_access", Date.now());
+                localStorage.removeItem("ram_attempts");
+                localStorage.removeItem("ram_lock");
+
+                fadeOutOverlay();
 
             } else {
-                const err = document.getElementById("errorMsg");
-                err.style.display = "block";
-                err.style.animation = "shake 0.3s";
-            }
-        }
 
-        window.onload = function () {
+                // ❌ FAIL
+                attempts++;
+                localStorage.setItem("ram_attempts", attempts);
 
-            // Auto unlock if already logged
-            if (localStorage.getItem("ram_access") === "granted") {
-                document.getElementById("introOverlay").style.display = "none";
-            }
+                errorMsg.innerText = "Invalid passkey";
+                errorMsg.style.display = "block";
+                errorMsg.style.animation = "shake 0.3s";
 
-            // ENTER key support (safe after load)
-            document.getElementById("passkey").addEventListener("keypress", function (e) {
-                if (e.key === "Enter") {
-                    checkPass();
+                // 🔒 Lock after max attempts
+                if (attempts >= RAM_CONFIG.MAX_ATTEMPTS) {
+                    const lockUntil = Date.now() + RAM_CONFIG.LOCK_TIME_MINUTES * 60 * 1000;
+                    localStorage.setItem("ram_lock", lockUntil);
+                    errorMsg.innerText = "Locked for 10 minutes";
                 }
-            });
-        };
-    </script>
-    </script>
-    <script>
-        function checkPass() {
-            var input = document.getElementById("passkey").value.trim();
-
-            if (input === "RAMPP01") {
-                localStorage.setItem("ram_access", "granted");
-                document.getElementById("introOverlay").style.display = "none";
-            } else {
-                document.getElementById("errorMsg").style.display = "block";
             }
         }
 
-        window.onload = function () {
-            if (localStorage.getItem("ram_access") === "granted") {
-                document.getElementById("introOverlay").style.display = "none";
+        /* ===== FADE EFFECT ===== */
+        function fadeOutOverlay() {
+            const overlay = document.getElementById("introOverlay");
+            overlay.style.opacity = "0";
+
+            setTimeout(() => {
+                overlay.style.display = "none";
+            }, 400);
+        }
+
+        /* ===== AUTO LOGIN CHECK ===== */
+        function checkSavedAccess() {
+            const saved = localStorage.getItem("ram_access");
+
+            if (saved) {
+                const validDuration = RAM_CONFIG.EXPIRY_HOURS * 60 * 60 * 1000;
+
+                if (Date.now() - saved < validDuration) {
+                    document.getElementById("introOverlay").style.display = "none";
+                } else {
+                    localStorage.removeItem("ram_access");
+                }
             }
+        }
+
+        /* ===== INIT ===== */
+        window.onload = function () {
+
+            checkSavedAccess();
+
+            const input = document.getElementById("passkey");
+
+            // ENTER key
+            input.addEventListener("keypress", function (e) {
+                if (e.key === "Enter") checkPass();
+            });
+
+            // Auto focus
+            input.focus();
         };
     </script>
     <!-- end PASS CODE PASS CODE -->
