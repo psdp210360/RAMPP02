@@ -32,6 +32,72 @@
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
         }
 
+        /* CENTER EVERYTHING PERFECTLY */
+        #introOverlay {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* CARD */
+        .intro-box {
+            background: white;
+            padding: 45px 40px;
+            border-radius: 16px;
+            text-align: center;
+            width: 360px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 18px;
+            /* 👈 perfect vertical rhythm */
+
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        /* TITLE */
+        .intro-box h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        /* SUBTITLE */
+        .intro-box p {
+            margin: 0;
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* INPUT */
+        .intro-box input {
+            width: 100%;
+            height: 46px;
+            padding: 0 12px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        /* BUTTON */
+        .intro-box button {
+            width: 100%;
+            height: 46px;
+            border: none;
+            background: #355c8a;
+            color: white;
+            border-radius: 10px;
+            font-weight: 500;
+            cursor: pointer;
+
+            transition: all 0.2s ease;
+        }
+
+        .intro-box button:hover {
+            background: #1f3a5f;
+            transform: translateY(-1px);
+        }
+
         /* ===== INPUT ===== */
         .intro-box input {
             width: 100%;
@@ -65,105 +131,6 @@
             display: none;
         }
     </style>
-    <!-- PASS CODE PASS CODEPASS CODE PASS CODEPASS CODE PASS CODEPASS CODE PASS CODE  -->
-    <script>
-        /* ================================
-           RAM PORTAL ACCESS CONTROL v2.0
-        ================================ */
-
-        const RAM_CONFIG = {
-            PASSKEY: "RAMPP01",
-            EXPIRY_HOURS: 24,
-            MAX_ATTEMPTS: 5,
-            LOCK_TIME_MINUTES: 10
-        };
-
-        /* ===== CHECK ACCESS ===== */
-        function checkPass() {
-            const input = document.getElementById("passkey").value.trim();
-            const errorMsg = document.getElementById("errorMsg");
-
-            let attempts = parseInt(localStorage.getItem("ram_attempts")) || 0;
-            let lockTime = localStorage.getItem("ram_lock");
-
-            // 🔒 Check if locked
-            if (lockTime && Date.now() < lockTime) {
-                errorMsg.innerText = "Too many attempts. Try later.";
-                errorMsg.style.display = "block";
-                return;
-            }
-
-            if (input === RAM_CONFIG.PASSKEY) {
-
-                // ✅ SUCCESS
-                localStorage.setItem("ram_access", Date.now());
-                localStorage.removeItem("ram_attempts");
-                localStorage.removeItem("ram_lock");
-
-                fadeOutOverlay();
-
-            } else {
-
-                // ❌ FAIL
-                attempts++;
-                localStorage.setItem("ram_attempts", attempts);
-
-                errorMsg.innerText = "Invalid passkey";
-                errorMsg.style.display = "block";
-                errorMsg.style.animation = "shake 0.3s";
-
-                // 🔒 Lock after max attempts
-                if (attempts >= RAM_CONFIG.MAX_ATTEMPTS) {
-                    const lockUntil = Date.now() + RAM_CONFIG.LOCK_TIME_MINUTES * 60 * 1000;
-                    localStorage.setItem("ram_lock", lockUntil);
-                    errorMsg.innerText = "Locked for 10 minutes";
-                }
-            }
-        }
-
-        /* ===== FADE EFFECT ===== */
-        function fadeOutOverlay() {
-            const overlay = document.getElementById("introOverlay");
-            overlay.style.opacity = "0";
-
-            setTimeout(() => {
-                overlay.style.display = "none";
-            }, 400);
-        }
-
-        /* ===== AUTO LOGIN CHECK ===== */
-        function checkSavedAccess() {
-            const saved = localStorage.getItem("ram_access");
-
-            if (saved) {
-                const validDuration = RAM_CONFIG.EXPIRY_HOURS * 60 * 60 * 1000;
-
-                if (Date.now() - saved < validDuration) {
-                    document.getElementById("introOverlay").style.display = "none";
-                } else {
-                    localStorage.removeItem("ram_access");
-                }
-            }
-        }
-
-        /* ===== INIT ===== */
-        window.onload = function () {
-
-            checkSavedAccess();
-
-            const input = document.getElementById("passkey");
-
-            // ENTER key
-            input.addEventListener("keypress", function (e) {
-                if (e.key === "Enter") checkPass();
-            });
-
-            // Auto focus
-            input.focus();
-        };
-    </script>
-    <!-- end PASS CODE PASS CODE -->
-
     <meta charset="UTF-8">
     <title>RAM Portal</title>
 
@@ -268,59 +235,24 @@
         }
     </style>
 
-    <script>
-        function loadPage(page) {
-            document.getElementById("mainFrame").src = page;
-        }
-    </script>
+
 
 </head>
 
 <body>
-    <script>
-        function checkPass() {
-            var input = document.getElementById("passkey").value.trim();
-            var now = new Date().getTime();
+    <!-- PASSKEY OVERLAY -->
+    <div id="introOverlay">
+        <div class="intro-box">
+            <h1>RAM Portal</h1>
+            <p>Policies & Procedures Knowledge Hub</p>
 
-            if (input === "RAMPP01") {
+            <input type="password" id="passkey" placeholder="Enter Access Key" />
+            <button onclick="checkPass()">Enter</button>
 
-                /* ===== CHOOSE MODE BELOW ===== */
-
-                // OPTION 1: One-time (forever)
-                // localStorage.setItem("ram_access", "granted");
-
-                // OPTION 2: Daily (24h)
-                localStorage.setItem("ram_access_expiry", now + (24 * 60 * 60 * 1000));
-
-                // OPTION 3: Weekly (7 days)
-                // localStorage.setItem("ram_access_expiry", now + (7 * 24 * 60 * 60 * 1000));
-
-                document.getElementById("introOverlay").style.display = "none";
-
-            } else {
-                document.getElementById("errorMsg").style.display = "block";
-            }
-        }
-
-        /* ===== CHECK ACCESS ON LOAD ===== */
-        window.onload = function () {
-            var expiry = localStorage.getItem("ram_access_expiry");
-            var now = new Date().getTime();
-
-            if (expiry && now < expiry) {
-                document.getElementById("introOverlay").style.display = "none";
-            }
-        };
-
-        /* ===== ENTER KEY SUPPORT ===== */
-        document.addEventListener("DOMContentLoaded", function () {
-            document.getElementById("passkey").addEventListener("keypress", function (e) {
-                if (e.key === "Enter") {
-                    checkPass();
-                }
-            });
-        });
-    </script>
+            <div id="errorMsg">Invalid passkey</div>
+        </div>
+    </div>
+    <!-- End PassKey 1 -->
 
     <header>
         <img src="assets/logo.png">
@@ -352,8 +284,6 @@
         <!-- <a href="pages/home.html">Home</a> -->
         <a href="index.html">Home</a>
 
-
-
     </div>
 
     <div class="container">
@@ -375,6 +305,56 @@
         <a href="index.html" style="color:white;">Home Page</a> |
         RAM Governance Portal | RAM-PROC-00
     </footer>
+    <!-- End footer -->
+
+    <script>
+        /* ===== RAM ACCESS SYSTEM (FINAL CLEAN) ===== */
+
+        const PASSKEY = "RAMPP01";
+        const EXPIRY_HOURS = 24;
+
+        function checkPass() {
+            const input = document.getElementById("passkey").value.trim();
+            const errorMsg = document.getElementById("errorMsg");
+
+            if (input === PASSKEY) {
+
+                localStorage.setItem("ram_access", Date.now());
+
+                const overlay = document.getElementById("introOverlay");
+                overlay.style.opacity = "0";
+
+                setTimeout(() => {
+                    overlay.style.display = "none";
+                }, 300);
+
+            } else {
+                errorMsg.style.display = "block";
+            }
+        }
+
+        window.onload = function () {
+
+            const saved = localStorage.getItem("ram_access");
+
+            // Auto الدخول لو خلال 24 ساعة
+            if (saved && (Date.now() - saved < EXPIRY_HOURS * 60 * 60 * 1000)) {
+                document.getElementById("introOverlay").style.display = "none";
+            }
+
+            const input = document.getElementById("passkey");
+
+            if (input) {
+                input.addEventListener("keypress", function (e) {
+                    if (e.key === "Enter") checkPass();
+                });
+
+                input.focus();
+            }
+        };
+    </script>
+    <!-- end passkey s2 -->
+
 
 </body>
 
