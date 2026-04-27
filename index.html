@@ -65,23 +65,41 @@
             display: none;
         }
     </style>
+    <!-- PASS CODE PASS CODEPASS CODE PASS CODEPASS CODE PASS CODEPASS CODE PASS CODE  -->
     <script>
         function checkPass() {
-            var input = document.getElementById("passkey").value.trim();
+            const input = document.getElementById("passkey").value.trim();
 
             if (input === "RAMPP01") {
-                document.getElementById("introOverlay").style.display = "none";
+                localStorage.setItem("ram_access", "granted");
+
+                document.getElementById("introOverlay").style.opacity = "0";
+                setTimeout(() => {
+                    document.getElementById("introOverlay").style.display = "none";
+                }, 400);
+
             } else {
-                document.getElementById("errorMsg").style.display = "block";
+                const err = document.getElementById("errorMsg");
+                err.style.display = "block";
+                err.style.animation = "shake 0.3s";
             }
         }
 
-        /* ENTER key support */
-        document.getElementById("passkey").addEventListener("keypress", function (e) {
-            if (e.key === "Enter") {
-                checkPass();
+        window.onload = function () {
+
+            // Auto unlock if already logged
+            if (localStorage.getItem("ram_access") === "granted") {
+                document.getElementById("introOverlay").style.display = "none";
             }
-        });
+
+            // ENTER key support (safe after load)
+            document.getElementById("passkey").addEventListener("keypress", function (e) {
+                if (e.key === "Enter") {
+                    checkPass();
+                }
+            });
+        };
+    </script>
     </script>
     <script>
         function checkPass() {
@@ -101,6 +119,7 @@
             }
         };
     </script>
+    <!-- end PASS CODE PASS CODE -->
 
     <meta charset="UTF-8">
     <title>RAM Portal</title>
@@ -289,6 +308,7 @@
         <!-- HOME -->
         <!-- <a href="pages/home.html">Home</a> -->
         <a href="index.html">Home</a>
+
 
 
     </div>
