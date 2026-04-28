@@ -1,9 +1,257 @@
-<h2>Building Blocks</h2>
+<!DOCTYPE html>
+<html>
 
-<ul>
-<li>RACI – Roles & Responsibilities</li>
-<li>DoA – Delegation of Authority</li>
-<li>KPI – Performance Metrics</li>
-<li>BPMN – Process Flow</li>
-<li>SAP – System Integration</li>
-</ul>
+<head>
+    <meta charset="UTF-8">
+    <title>RAM Building Blocks</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 20px;
+            background: #f4f6f8;
+            color: #2c3e50;
+        }
+
+        h2 {
+            color: #1f3a5f;
+        }
+
+        h3 {
+            margin-top: 25px;
+            color: #2c5282;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 18px;
+            border-radius: 10px;
+            border-left: 5px solid #1f3a5f;
+            transition: 0.25s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            background: #eef4fb;
+        }
+
+        .card b {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #1f3a5f;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            margin-bottom: 8px;
+        }
+
+        .section {
+            margin-top: 30px;
+        }
+
+        .highlight {
+            background: #eaf1f8;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>🧩 RAM Building Blocks Framework</h2>
+    <p>
+        The RAM system is structured around core building blocks that ensure governance, efficiency,
+        and integration across strategy, operations, and systems.
+    </p>
+
+    ---
+
+    <div class="section">
+        <h3>1. Governance & Control</h3>
+
+        <div class="grid">
+
+            <div class="card">
+                <span class="tag">Governance</span>
+                <b>RACI Matrix</b>
+                <p>Defines roles and responsibilities across processes to ensure accountability.</p>
+                <div class="highlight">
+                    Owner → Responsible → Accountable → Consulted → Informed
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="tag">Authority</span>
+                <b>Delegation of Authority (DoA)</b>
+                <p>Defines approval limits for financial, operational, and contractual decisions.</p>
+                <div class="highlight">
+                    Example: CAPEX approval thresholds by management level
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="tag">Compliance</span>
+                <b>Policies & SOPs</b>
+                <p>Standardized procedures ensuring consistency and regulatory compliance.</p>
+            </div>
+
+        </div>
+    </div>
+
+    ---
+
+    <div class="section">
+        <h3>2. Performance & Analytics</h3>
+
+        <div class="grid">
+
+            <div class="card">
+                <span class="tag">Performance</span>
+                <b>KPI Framework</b>
+                <p>Defines measurable indicators for each L0 and L1 process.</p>
+                <div class="highlight">
+                    Examples: Occupancy Rate, NOI, Maintenance SLA
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="tag">Reporting</span>
+                <b>Dashboards</b>
+                <p>Real-time monitoring of asset, financial, and operational performance.</p>
+            </div>
+
+            <div class="card">
+                <span class="tag">Data</span>
+                <b>Data Governance</b>
+                <p>Ensures data accuracy, ownership, and consistency across systems.</p>
+            </div>
+
+        </div>
+    </div>
+
+    ---
+
+    <div class="section">
+        <h3>3. Process & Workflow</h3>
+
+        <div class="grid">
+
+            <div class="card">
+                <span class="tag">Process</span>
+                <b>BPMN / Process Mapping</b>
+                <p>Visual representation of workflows from L0 to L3.</p>
+                <div class="highlight">
+                    Used in: Leasing, Maintenance, Investment flows
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="tag">Workflow</span>
+                <b>Approval Flows</b>
+                <p>Structured approval steps embedded in operations and SAP.</p>
+            </div>
+
+            <div class="card">
+                <span class="tag">Standardization</span>
+                <b>Templates & Forms</b>
+                <p>Standard forms for consistency (leases, contracts, reports).</p>
+            </div>
+
+        </div>
+    </div>
+
+    ---
+
+    <div class="section">
+        <h3>4. Systems & Integration</h3>
+
+        <div class="grid">
+
+            <div class="card">
+                <span class="tag">System</span>
+                <b>SAP Integration</b>
+                <p>Core ERP backbone linking finance, leasing, maintenance, and projects.</p>
+                <div class="highlight">
+                    Modules: FI, CO, RE-FX, PM, MM
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="tag">Digital</span>
+                <b>Automation</b>
+                <p>Workflow automation and digital approvals.</p>
+            </div>
+
+            <div class="card">
+                <span class="tag">Data</span>
+                <b>System Integration</b>
+                <p>Connecting SAP with BI tools, CRM, and external systems.</p>
+            </div>
+
+        </div>
+    </div>
+
+    ---
+
+    <div class="section">
+        <h3>5. Risk & Compliance</h3>
+
+        <div class="grid">
+
+            <div class="card">
+                <span class="tag">Risk</span>
+                <b>Risk Management</b>
+                <p>Identification, mitigation, and monitoring of risks.</p>
+            </div>
+
+            <div class="card">
+                <span class="tag">Audit</span>
+                <b>Internal Audit</b>
+                <p>Ensures processes are followed and controls are effective.</p>
+            </div>
+
+            <div class="card">
+                <span class="tag">Control</span>
+                <b>SAP GRC</b>
+                <p>Ensures access control, segregation of duties, and compliance.</p>
+            </div>
+
+        </div>
+    </div>
+
+    ---
+
+    <div class="section">
+        <h3>🎯 How These Blocks Work Together</h3>
+
+        <div class="highlight">
+            • Governance defines WHO does WHAT
+            • Processes define HOW work is done
+            • Systems (SAP) execute the work
+            • KPIs measure performance
+            • GRC ensures control and compliance
+
+            👉 Together → Full RAM Operating System
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -9,44 +9,92 @@
         body {
             font-family: Arial;
             margin: 20px;
-        }
-
-        .l0 {
-            background: #2c3e50;
-            color: white;
-            padding: 12px;
-            margin-top: 10px;
-            cursor: pointer;
-            border-radius: 6px;
-        }
-
-        .l1-container {
-            display: none;
-            padding: 10px;
-            border-left: 3px solid #2c3e50;
-        }
-
-        .l1 {
             background: #f4f6f8;
-            margin: 5px 0;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
         }
 
-        .l1:hover {
-            background: #dce6f2;
+        h2 {
+            margin-bottom: 20px;
+            color: #1f3a5f;
+        }
+
+        /* LAYOUT */
+        .grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* L0 CARDS */
+        .l0-card {
+            background: #1f3a5f;
+            color: white;
+            padding: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .l0-card:hover {
+            background: #2c5282;
+        }
+
+        .l0-card h3 {
+            margin: 0 0 5px 0;
+        }
+
+        .l0-card p {
+            margin: 0;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* L1 GRID */
+        .l1-grid {
+            display: none;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 10px;
+            padding: 10px;
+        }
+
+        /* L1 CARDS */
+        .l1-card {
+            background: white;
+            padding: 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            border-left: 4px solid #1f3a5f;
+            transition: 0.2s;
+        }
+
+        .l1-card:hover {
+            background: #eaf1f8;
+        }
+
+        .l1-card b {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .l1-card p {
+            margin: 0;
+            font-size: 13px;
+            color: #555;
         }
     </style>
 
     <script>
         function toggle(id) {
             let el = document.getElementById(id);
-            el.style.display = el.style.display === "block" ? "none" : "block";
+            el.style.display = el.style.display === "grid" ? "none" : "grid";
         }
 
         function openPage(page) {
-            parent.loadPage(page);
+            if (parent && parent.loadPage) {
+                parent.loadPage(page);
+            } else {
+                // fallback if opened standalone
+                window.location.href = page;
+            }
         }
     </script>
 
@@ -54,162 +102,105 @@
 
 <body>
 
-    <h2>RAM Process Map (Full L0 → L1)</h2>
+    <h2>RAM Operating Model (L0 → L1)</h2>
 
-    <!-- ================= 1 ================= -->
-    <div class="l0" onclick="toggle('l1_1')">1. Investment & Portfolio Strategy</div>
-    <div id="l1_1" class="l1-container">
-        <div class="l1" onclick="openPage('pages/RAM-INV-STR-01_Portfolio_Planning.html')">1.1 Portfolio Planning</div>
-        <div class="l1" onclick="openPage('pages/RAM-INV-STR-02_Market_Research_and_Intelligence.html')">1.2 Market
-            Research & Intelligence</div>
-        <div class="l1" onclick="openPage('pages/RAM-INV-STR-03_Portfolio_Performance_Analytics.html')">1.3 Portfolio
-            Performance Analytics</div>
-        <div class="l1" onclick="openPage('pages/RAM-INV-STR-04_Strategic_Asset_Allocation.html')">1.4 Strategic Asset
-            Allocation</div>
-    </div>
+    <div class="grid">
 
-    <!-- ================= 2 ================= -->
-    <div class="l0" onclick="toggle('l1_2')">2. Investment Execution (Acquisition & Disposal)</div>
-    <div id="l1_2" class="l1-container">
-        <div class="l1">2.1 Deal Sourcing</div>
-        <div class="l1">2.2 Financial Modeling</div>
-        <div class="l1">2.3 Due Diligence</div>
-        <div class="l1">2.4 Investment Approval</div>
-        <div class="l1">2.5 Transaction Execution</div>
-    </div>
+        <!-- 1 -->
+        <div class="l0-card" onclick="toggle('l1_1')">
+            <h3>1. Strategy & Portfolio</h3>
+            <p>Investment direction, asset allocation, and performance optimization.</p>
+        </div>
 
-    <!-- ================= 3 ================= -->
-    <div class="l0" onclick="toggle('l1_3')">3. Leasing & Revenue Management</div>
-    <div id="l1_3" class="l1-container">
-        <div class="l1">3.1 Property Marketing</div>
-        <div class="l1">3.2 Lead Management</div>
-        <div class="l1">3.3 Tenant Screening</div>
-        <div class="l1">3.4 Lease Negotiation</div>
-        <div class="l1">3.5 Lease Contracting</div>
-        <div class="l1">3.6 Lease Administration</div>
-    </div>
+        <div id="l1_1" class="l1-grid">
+            <div class="l1-card" onclick="openPage('pages/RAM-INV-STR-01_Portfolio_Planning.html')">
+                <b>Portfolio Planning</b>
+                <p>Define portfolio mix and long-term strategy.</p>
+            </div>
 
-    <!-- ================= 4 ================= -->
-    <div class="l0" onclick="toggle('l1_4')">4. Tenant Lifecycle Management</div>
-    <div id="l1_4" class="l1-container">
-        <div class="l1">4.1 Tenant Onboarding</div>
-        <div class="l1">4.2 Tenant Communication</div>
-        <div class="l1">4.3 Service Request Management</div>
-        <div class="l1">4.4 Lease Renewal</div>
-        <div class="l1">4.5 Tenant Exit Management</div>
-    </div>
+            <div class="l1-card">
+                <b>Market Intelligence</b>
+                <p>Analyze trends and opportunities.</p>
+            </div>
 
-    <!-- ================= 5 ================= -->
-    <div class="l0" onclick="toggle('l1_5')">5. Asset Operations & Facility Management</div>
-    <div id="l1_5" class="l1-container">
-        <div class="l1">5.1 Maintenance Management</div>
-        <div class="l1">5.2 Preventive Maintenance</div>
-        <div class="l1">5.3 Asset Condition Monitoring</div>
-        <div class="l1">5.4 Utilities Management</div>
-        <div class="l1">5.5 Security & Safety Management</div>
-        <div class="l1">5.6 Soft Services Management</div>
-    </div>
+            <div class="l1-card">
+                <b>Performance Analytics</b>
+                <p>Track KPIs and returns.</p>
+            </div>
+        </div>
 
-    <!-- ================= 6 ================= -->
-    <div class="l0" onclick="toggle('l1_6')">6. Projects & CAPEX Management</div>
-    <div id="l1_6" class="l1-container">
-        <div class="l1">6.1 CAPEX Planning</div>
-        <div class="l1">6.2 Project Budgeting</div>
-        <div class="l1">6.3 Contractor Procurement</div>
-        <div class="l1">6.4 Project Execution</div>
-        <div class="l1">6.5 Project Handover</div>
-    </div>
+        <!-- 2 -->
+        <div class="l0-card" onclick="toggle('l1_2')">
+            <h3>2. Investment Execution</h3>
+            <p>Acquisition and disposal lifecycle.</p>
+        </div>
 
-    <!-- ================= 7 ================= -->
-    <div class="l0" onclick="toggle('l1_7')">7. Financial Management & Accounting</div>
-    <div id="l1_7" class="l1-container">
-        <div class="l1">7.1 Rent Billing</div>
-        <div class="l1">7.2 Collections Management</div>
-        <div class="l1">7.3 Accounts Payable</div>
-        <div class="l1">7.4 Financial Reporting</div>
-        <div class="l1">7.5 Budgeting & Forecasting</div>
-        <div class="l1">7.6 Treasury Management</div>
-    </div>
+        <div id="l1_2" class="l1-grid">
+            <div class="l1-card"><b>Deal Sourcing</b>
+                <p>Identify opportunities.</p>
+            </div>
+            <div class="l1-card"><b>Due Diligence</b>
+                <p>Validate investments.</p>
+            </div>
+            <div class="l1-card"><b>Transaction Execution</b>
+                <p>Close deals.</p>
+            </div>
+        </div>
 
-    <!-- ================= 8 ================= -->
-    <div class="l0" onclick="toggle('l1_8')">8. Procurement & Vendor Management</div>
-    <div id="l1_8" class="l1-container">
-        <div class="l1">8.1 Vendor Registration</div>
-        <div class="l1">8.2 Tendering & RFQ</div>
-        <div class="l1">8.3 Vendor Evaluation</div>
-        <div class="l1">8.4 Contract Management</div>
-        <div class="l1">8.5 Vendor Performance Monitoring</div>
-    </div>
+        <!-- 3 -->
+        <div class="l0-card" onclick="toggle('l1_3')">
+            <h3>3. Leasing & Revenue</h3>
+            <p>Maximize occupancy and income.</p>
+        </div>
 
-    <!-- ================= 9 ================= -->
-    <div class="l0" onclick="toggle('l1_9')">9. Risk, Compliance & Governance</div>
-    <div id="l1_9" class="l1-container">
-        <div class="l1">9.1 Risk Management</div>
-        <div class="l1">9.2 Compliance Monitoring</div>
-        <div class="l1">9.3 Internal Audit</div>
-        <div class="l1">9.4 Business Continuity Management</div>
-    </div>
+        <div id="l1_3" class="l1-grid">
+            <div class="l1-card"><b>Marketing & Leads</b>
+                <p>Generate demand.</p>
+            </div>
+            <div class="l1-card"><b>Lease Management</b>
+                <p>Contracts & pricing.</p>
+            </div>
+            <div class="l1-card"><b>Revenue Optimization</b>
+                <p>Yield & renewals.</p>
+            </div>
+        </div>
 
-    <!-- ================= 10 ================= -->
-    <div class="l0" onclick="toggle('l1_10')">10. Legal & Contract Management</div>
-    <div id="l1_10" class="l1-container">
-        <div class="l1">10.1 Contract Drafting</div>
-        <div class="l1">10.2 Dispute Management</div>
-        <div class="l1">10.3 Title & Documentation</div>
-    </div>
+        <!-- 4 -->
+        <div class="l0-card" onclick="toggle('l1_4')">
+            <h3>4. Operations & Asset Management</h3>
+            <p>Maintain and enhance asset performance.</p>
+        </div>
 
-    <!-- ================= 11 ================= -->
-    <div class="l0" onclick="toggle('l1_11')">11. Data, Analytics & Reporting</div>
-    <div id="l1_11" class="l1-container">
-        <div class="l1">11.1 KPI Management</div>
-        <div class="l1">11.2 Reporting & Analytics</div>
-        <div class="l1">11.3 Data Management</div>
-    </div>
+        <div id="l1_4" class="l1-grid">
+            <div class="l1-card"><b>Maintenance</b>
+                <p>Preventive & reactive.</p>
+            </div>
+            <div class="l1-card"><b>Facility Management</b>
+                <p>Utilities & services.</p>
+            </div>
+            <div class="l1-card"><b>CAPEX Projects</b>
+                <p>Upgrades & expansions.</p>
+            </div>
+        </div>
 
-    <!-- ================= 12 ================= -->
-    <div class="l0" onclick="toggle('l1_12')">12. Customer Experience & Digital Services</div>
-    <div id="l1_12" class="l1-container">
-        <div class="l1">12.1 Tenant Portal Management</div>
-        <div class="l1">12.2 Feedback Management</div>
-        <div class="l1">12.3 Digital Service Delivery</div>
-    </div>
+        <!-- 5 -->
+        <div class="l0-card" onclick="toggle('l1_5')">
+            <h3>5. Governance & Support</h3>
+            <p>Finance, risk, HR, and digital backbone.</p>
+        </div>
 
-    <!-- ================= 13 ================= -->
-    <div class="l0" onclick="toggle('l1_13')">13. Human Capital (HR)</div>
-    <div id="l1_13" class="l1-container">
-        <div class="l1">13.1 Recruitment</div>
-        <div class="l1">13.2 Training & Development</div>
-        <div class="l1">13.3 Performance Management</div>
-        <div class="l1">13.4 Payroll Management</div>
-    </div>
+        <div id="l1_5" class="l1-grid">
+            <div class="l1-card"><b>Finance</b>
+                <p>Billing & reporting.</p>
+            </div>
+            <div class="l1-card"><b>Risk & Compliance</b>
+                <p>Controls & audit.</p>
+            </div>
+            <div class="l1-card"><b>Digital & Data</b>
+                <p>Systems & analytics.</p>
+            </div>
+        </div>
 
-    <!-- ================= 14 ================= -->
-    <div class="l0" onclick="toggle('l1_14')">14. IT, ERP & Digital Infrastructure</div>
-    <div id="l1_14" class="l1-container">
-        <div class="l1">14.1 System Administration</div>
-        <div class="l1">14.2 Cybersecurity Management</div>
-        <div class="l1">14.3 User Access Management</div>
-    </div>
-
-    <!-- ================= 15 ================= -->
-    <div class="l0" onclick="toggle('l1_15')">15. Administration & Office Services</div>
-    <div id="l1_15" class="l1-container">
-        <div class="l1">15.1 Document Control</div>
-        <div class="l1">15.2 Office Management</div>
-    </div>
-
-    <!-- ================= 16 ================= -->
-    <div class="l0" onclick="toggle('l1_16')">16. Brand, Marketing & Communications</div>
-    <div id="l1_16" class="l1-container">
-        <div class="l1">16.1 Campaign Management</div>
-        <div class="l1">16.2 Brand Management</div>
-    </div>
-
-    <!-- ================= 17 ================= -->
-    <div class="l0" onclick="toggle('l1_17')">17. Stakeholder & Family Office Management</div>
-    <div id="l1_17" class="l1-container">
-        <div class="l1">17.1 Stakeholder Reporting</div>
-        <div class="l1">17.2 Strategic Alignment</div>
     </div>
 
 </body>
