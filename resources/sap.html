@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>SAP Integration - RAM Portal</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 20px;
+            background: #f4f6f8;
+            color: #2c3e50;
+        }
+
+        h2 {
+            color: #1f3a5f;
+        }
+
+        h3 {
+            margin-top: 25px;
+            color: #2c5282;
+        }
+
+        .section {
+            margin-top: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            border-left: 5px solid #1f3a5f;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .module {
+            background: #ffffff;
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 4px solid #2c5282;
+        }
+
+        .highlight {
+            background: #eaf1f8;
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>⚙ SAP Integration Framework for RAM</h2>
+    <p>This page outlines how SAP supports the RAM operating model, including governance (GRC), core modules, and
+        process integration.</p>
+
+    ---
+
+    <div class="section">
+        <h3>1. 🔐 SAP GRC & Integration Challenges</h3>
+
+        <div class="card">
+            <b>Key Governance Areas</b>
+
+            <div class="grid">
+                <div class="module"><b>Access Control</b>
+                    <p>Ensure role-based access (e.g. leasing vs finance).</p>
+                </div>
+                <div class="module"><b>Segregation of Duties (SoD)</b>
+                    <p>Prevent conflicts (e.g. create vendor + approve payment).</p>
+                </div>
+                <div class="module"><b>Audit & Compliance</b>
+                    <p>Track approvals, logs, and regulatory compliance.</p>
+                </div>
+                <div class="module"><b>Risk Management</b>
+                    <p>Identify financial and operational risks across assets.</p>
+                </div>
+            </div>
+
+            <div class="highlight">
+                ⚠ Common Issues:
+                <ul>
+                    <li>Overlapping roles → weak control</li>
+                    <li>Manual approvals outside SAP</li>
+                    <li>Disconnected modules (finance vs operations)</li>
+                    <li>Lack of audit trails in Excel-based processes</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    ---
+
+    <div class="section">
+        <h3>2. 🧩 Core SAP Modules for RAM</h3>
+
+        <div class="grid">
+
+            <div class="module">
+                <b>FI (Financial Accounting)</b>
+                <p>GL, AP/AR, financial reporting</p>
+            </div>
+
+            <div class="module">
+                <b>CO (Controlling)</b>
+                <p>Cost centers, profitability, asset-level performance</p>
+            </div>
+
+            <div class="module">
+                <b>RE-FX (Real Estate Management)</b>
+                <p>Lease contracts, rent, tenant management</p>
+            </div>
+
+            <div class="module">
+                <b>PM (Plant Maintenance)</b>
+                <p>Maintenance scheduling, asset upkeep</p>
+            </div>
+
+            <div class="module">
+                <b>MM (Materials Management)</b>
+                <p>Procurement, vendor management</p>
+            </div>
+
+            <div class="module">
+                <b>PS (Project Systems)</b>
+                <p>CAPEX projects, construction tracking</p>
+            </div>
+
+            <div class="module">
+                <b>SD (Sales & Distribution)</b>
+                <p>Commercial leasing, billing integration</p>
+            </div>
+
+            <div class="module">
+                <b>GRC</b>
+                <p>Governance, Risk & Compliance layer</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    ---
+
+    <div class="section">
+        <h3>3. 🔄 How RAM Processes Map into SAP</h3>
+
+        <div class="card">
+            <b>Example: Lease Management Process</b>
+
+            <div class="highlight">
+                Step 1 → Create Lease (RE-FX)
+                Step 2 → Link Tenant (Business Partner)
+                Step 3 → Generate Billing (FI/SD)
+                Step 4 → Track Payments (FI-AR)
+                Step 5 → Report Performance (CO)
+            </div>
+        </div>
+
+        ---
+
+        <div class="card">
+            <b>Example: Maintenance Request</b>
+
+            <div class="highlight">
+                Step 1 → Raise Work Order (PM)
+                Step 2 → Assign Technician
+                Step 3 → Procure Materials (MM)
+                Step 4 → Complete Work Order
+                Step 5 → Cost Posting (CO)
+            </div>
+        </div>
+
+        ---
+
+        <div class="card">
+            <b>Example: CAPEX Project</b>
+
+            <div class="highlight">
+                Step 1 → Create Project (PS)
+                Step 2 → Budget Allocation (CO)
+                Step 3 → Procurement (MM)
+                Step 4 → Execution Tracking
+                Step 5 → Asset Capitalization (FI-AA)
+            </div>
+        </div>
+
+    </div>
+
+    ---
+
+    <div class="section">
+        <h3>4. 🧠 Embedding Processes into SAP (How-To)</h3>
+
+        <div class="card">
+            <b>Step-by-Step Integration Approach</b>
+
+            <div class="highlight">
+                1. Define Business Process (RAM L1/L2)
+                2. Map to SAP Module (e.g. Leasing → RE-FX)
+                3. Define Roles (GRC)
+                4. Configure Workflow (Approvals)
+                5. Integrate with Finance (FI/CO)
+                6. Build Reports (KPIs)
+                7. Train Users & Deploy
+            </div>
+        </div>
+
+        ---
+
+        <div class="card">
+            <b>Embedding Instructions in RAM Documents</b>
+
+            <div class="highlight">
+                Each process page should include:
+
+                • SAP Transaction Code (e.g. VA01, IW31)
+                • Responsible Role
+                • Required Inputs
+                • Approval Flow
+                • Output (report / document)
+
+                👉 Example:
+
+                “Create Lease Contract in RE-FX → T-Code: RECN
+                Approve via Workflow → Role: Asset Manager”
+            </div>
+        </div>
+
+    </div>
+
+    ---
+
+    <div class="section">
+        <h3>5. 🎯 Key Takeaways</h3>
+
+        <div class="card">
+            <ul>
+                <li>SAP is not just system → it is process backbone</li>
+                <li>GRC ensures governance & control</li>
+                <li>Each RAM process must map to a module</li>
+                <li>Integration across modules is critical</li>
+                <li>Documentation must include SAP execution steps</li>
+            </ul>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
