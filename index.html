@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="/css/style.css">
 
 <head>
     <!-- Script calling pages into the right block  -->
@@ -306,7 +306,14 @@
         RAM Governance Portal | RAM-PROC-00
     </footer>
     <!-- End footer -->
-
+    <!-- added page for menu clocks -->
+    <script>
+        function loadPage(page) {
+            document.getElementById("mainFrame").src = page;
+        }
+    </script>
+    <!-- added page for menu clocks -->
+    <!-- PASSKEY  -->
     <script>
         /* ===== RAM ACCESS SYSTEM (FINAL CLEAN) ===== */
 
@@ -317,12 +324,22 @@
             const input = document.getElementById("passkey").value.trim();
             const errorMsg = document.getElementById("errorMsg");
 
+
             if (input === PASSKEY) {
 
                 localStorage.setItem("ram_access", Date.now());
 
                 const overlay = document.getElementById("introOverlay");
+
                 overlay.style.opacity = "0";
+                overlay.style.pointerEvents = "none";   // 🔥 ADD THIS
+
+                setTimeout(() => {
+                    overlay.style.display = "none";
+                }, 300);
+
+                overlay.style.opacity = "0";
+                overlay.style.pointerEvents = "none";   // 🔥 IMPORTANT
 
                 setTimeout(() => {
                     overlay.style.display = "none";
@@ -339,7 +356,9 @@
 
             // Auto الدخول لو خلال 24 ساعة
             if (saved && (Date.now() - saved < EXPIRY_HOURS * 60 * 60 * 1000)) {
-                document.getElementById("introOverlay").style.display = "none";
+                const overlay = document.getElementById("introOverlay");
+                overlay.style.display = "none";
+                overlay.style.pointerEvents = "none";   // 🔥 THIS IS THE FIX
             }
 
             const input = document.getElementById("passkey");
