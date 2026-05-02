@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>RAM Forms Library</title>
+
+<style>
+body { font-family: Arial; background:#eef2f7; padding:20px; }
+h2 { color:#1f3a5f; }
+
+.grid {
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:15px;
+margin-top:20px;
+}
+
+.card {
+background:white;
+padding:15px;
+border-left:5px solid #1f3a5f;
+border-radius:8px;
+cursor:pointer;
+}
+
+.card:hover {
+background:#f0f4f8;
+}
+</style>
+
+<script>
+function go(path){
+window.location.href = path;
+}
+</script>
+</head>
+
+<body>
+
+<h2>📁 RAM Forms Library (WBS Structured)</h2>
+
+<div class="grid">
+
+<div class="card" onclick="go('L0_1_Strategy/index.html')">
+<b>L0-1 Strategy & Portfolio</b>
+Portfolio, Budgeting, Performance
+</div>
+
+<div class="card" onclick="go('L0_2_Investment/index.html')">
+<b>L0-2 Investment & Projects</b>
+CAPEX, Due Diligence, Deals
+</div>
+
+<div class="card" onclick="go('L0_3_Commercial/index.html')">
+<b>L0-3 Commercial</b>
+Leasing, Pricing, Sales
+</div>
+
+<div class="card" onclick="go('L0_4_Operations/index.html')">
+<b>L0-4 Operations</b>
+Maintenance, Tenant, Billing
+</div>
+
+<div class="card" onclick="go('L0_5_Corporate/index.html')">
+<b>L0-5 Corporate Services</b>
+Finance, HR, Procurement
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>RAM Policy Governance System</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #eef2f7;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #1f3a5f;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .l0 {
+            background: #1f3a5f;
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        .card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        .policy {
+            margin-top: 15px;
+            padding: 15px;
+            background: #f8fbff;
+            border-left: 6px solid #1f3a5f;
+        }
+
+        .meta {
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .stars {
+            color: gold;
+        }
+
+        .link {
+            color: #1f3a5f;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    </style>
+
+    <script>
+        function go(path) {
+            window.location.href = path;
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <h1>📘 RAM Policy → Process → Form System</h1>
+
+    <p>
+        This system connects governance policies to operational processes and execution forms,
+        ensuring full traceability and compliance across RAM.
+    </p>
+
+    <!-- ===================== L0-1 ===================== -->
+
+    <div class="section">
+        <div class="l0">L0-1 Strategy & Portfolio Management</div>
+
+        <div class="card">
+
+            <div class="policy">
+
+                <h3>Corporate Strategy Policy</h3>
+
+                <div class="meta">
+                    <b>Owner:</b> CIO |
+                    <b>Importance:</b> <span class="stars">★★★★★</span> |
+                    <b>Standard:</b> ISO 55000
+                </div>
+
+                <b>Description:</b>
+                <p>
+                    This policy defines how RAM establishes its long-term strategic direction,
+                    including portfolio positioning, market alignment, and investment priorities.
+                    It ensures that all assets and investment decisions contribute to maximizing
+                    shareholder value and long-term sustainability.
+                </p>
+
+                <b>Objective:</b>
+                <ul>
+                    <li>Align portfolio with macroeconomic trends</li>
+                    <li>Ensure consistent strategic decision-making</li>
+                </ul>
+
+                <b>Controls:</b>
+                <ul>
+                    <li>Annual strategy review</li>
+                    <li>Board-level approval for major changes</li>
+                </ul>
+
+                <b>Constraints:</b>
+                <ul>
+                    <li>Capital allocation limits</li>
+                    <li>Regulatory restrictions</li>
+                </ul>
+
+                <b>Linked Processes:</b>
+                <ul>
+                    <li>L1-1.1 Portfolio Strategy & Segmentation</li>
+                    <li>L1-1.2 Investment Planning</li>
+                </ul>
+
+                <b>Linked Forms:</b>
+                <ul>
+                    <li class="link" onclick="go('L0_1_Strategy/FORM-1-1.1-01.html')">
+                        Portfolio Strategy Template
+                    </li>
+                    <li class="link" onclick="go('L0_1_Strategy/FORM-1-1.2-01.html')">
+                        Investment Plan Form
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="policy">
+
+                <h3>Portfolio Governance Policy</h3>
+
+                <div class="meta">
+                    <b>Owner:</b> CIO |
+                    <b>Importance:</b> <span class="stars">★★★★☆</span>
+                </div>
+
+                <b>Description:</b>
+                <p>
+                    Defines rules for asset allocation, diversification, and performance monitoring,
+                    ensuring a balanced risk-return portfolio across asset classes and geographies.
+                </p>
+
+                <b>Controls:</b>
+                <ul>
+                    <li>Diversification thresholds</li>
+                    <li>Quarterly portfolio review</li>
+                </ul>
+
+                <b>Linked Forms:</b>
+                <ul>
+                    <li class="link" onclick="go('L0_1_Strategy/FORM-1-1.1-02.html')">
+                        Segmentation Register
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ===================== L0-2 ===================== -->
+
+    <div class="section">
+        <div class="l0">L0-2 Investment & Capital Projects</div>
+
+        <div class="card">
+
+            <div class="policy">
+
+                <h3>Investment Policy</h3>
+
+                <div class="meta">
+                    <b>Owner:</b> Investment Committee |
+                    <b>Importance:</b> <span class="stars">★★★★★</span>
+                </div>
+
+                <b>Description:</b>
+                <p>
+                    This policy governs all investment decisions including acquisitions,
+                    disposals, and capital deployment. It ensures that all investments are
+                    financially viable, strategically aligned, and risk-assessed.
+                </p>
+
+                <b>Controls:</b>
+                <ul>
+                    <li>Mandatory IRR / NPV analysis</li>
+                    <li>Approval gates (IC / Board)</li>
+                </ul>
+
+                <b>Linked Processes:</b>
+                <ul>
+                    <li>L1-2.1 Acquisitions</li>
+                    <li>L1-2.2 Due Diligence</li>
+                </ul>
+
+                <b>Linked Forms:</b>
+                <ul>
+                    <li class="link" onclick="go('L0_2_Investment/FORM-2-2.1-01.html')">
+                        Investment Proposal
+                    </li>
+                    <li class="link" onclick="go('L0_2_Investment/FORM-2-2.2-01.html')">
+                        Due Diligence Checklist
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="policy">
+
+                <h3>CAPEX Policy</h3>
+
+                <div class="meta">
+                    <b>Owner:</b> CFO |
+                    <b>Importance:</b> <span class="stars">★★★★☆</span>
+                </div>
+
+                <b>Description:</b>
+                <p>
+                    Controls planning, approval, and execution of capital expenditures to ensure
+                    cost efficiency and value creation.
+                </p>
+
+                <b>Linked Forms:</b>
+                <ul>
+                    <li class="link" onclick="go('L0_2_Investment/FORM-2-2.3-01.html')">
+                        CAPEX Approval Form
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ===================== L0-4 ===================== -->
+
+    <div class="section">
+        <div class="l0">L0-4 Asset Operations</div>
+
+        <div class="card">
+
+            <div class="policy">
+
+                <h3>Maintenance Policy</h3>
+
+                <div class="meta">
+                    <b>Owner:</b> Head of FM |
+                    <b>Importance:</b> <span class="stars">★★★★★</span>
+                </div>
+
+                <b>Description:</b>
+                <p>
+                    Defines preventive and corrective maintenance strategies to ensure asset
+                    reliability, safety, and lifecycle optimization.
+                </p>
+
+                <b>Controls:</b>
+                <ul>
+                    <li>Scheduled maintenance plans</li>
+                    <li>Work order tracking</li>
+                </ul>
+
+                <b>Linked Forms:</b>
+                <ul>
+                    <li class="link" onclick="go('L0_4_Operations/FORM-4-4.2-01.html')">
+                        Maintenance Request
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ===================== L0-5 ===================== -->
+
+    <div class="section">
+        <div class="l0">L0-5 Corporate Services</div>
+
+        <div class="card">
+
+            <div class="policy">
+
+                <h3>Financial Management Policy</h3>
+
+                <div class="meta">
+                    <b>Owner:</b> CFO |
+                    <b>Importance:</b> <span class="stars">★★★★★</span>
+                </div>
+
+                <b>Description:</b>
+                <p>
+                    Ensures financial integrity, accurate reporting, and compliance with IFRS
+                    and regulatory requirements.
+                </p>
+
+                <b>Controls:</b>
+                <ul>
+                    <li>Monthly closing cycle</li>
+                    <li>Audit controls</li>
+                </ul>
+
+                <b>Linked Forms:</b>
+                <ul>
+                    <li class="link" onclick="go('L0_5_Corporate/FORM-5-5.1-01.html')">
+                        Journal Voucher
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

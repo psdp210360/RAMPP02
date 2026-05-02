@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Budget Approval</title>
+
+<style>
+body { font-family:Arial; background:#f4f6f8; padding:20px; }
+
+.container {
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    max-width:600px;
+    margin:auto;
+}
+
+h2 { color:#1f3a5f; }
+
+input, textarea, select {
+    width:100%;
+    padding:8px;
+    margin-top:5px;
+    margin-bottom:10px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+.actions {
+    display:flex;
+    gap:10px;
+}
+
+button {
+    padding:10px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.primary { background:#1f3a5f; color:white; }
+.secondary { background:#6c757d; color:white; }
+</style>
+
+<script>
+function exportPDF(){ window.print(); }
+function share(){ navigator.clipboard.writeText(window.location.href); alert("Link copied"); }
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>FORM-1-1.2-02 Budget Approval</h2>
+
+<label>Department</label>
+<input type="text">
+
+<label>Budget Amount</label>
+<input type="number">
+
+<label>Justification</label>
+<textarea></textarea>
+
+<label>Approval Level</label>
+<select>
+<option>Manager</option>
+<option>Director</option>
+<option>CIO</option>
+</select>
+
+<div class="actions">
+<button class="primary">Submit</button>
+<button class="secondary" onclick="exportPDF()">PDF</button>
+<button class="secondary" onclick="share()">Share</button>
+</div>
+
+</div>
+
+</body>
+</html>

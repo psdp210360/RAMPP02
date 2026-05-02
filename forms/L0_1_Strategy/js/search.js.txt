@@ -1,0 +1,27 @@
+function deepSearch(){
+
+    let query = document.getElementById("search").value.toLowerCase();
+
+    let rows = document.querySelectorAll("tbody tr");
+    let db = JSON.parse(localStorage.getItem("RAM_DB")) || [];
+
+    rows.forEach(row => {
+
+        let rowText = row.innerText.toLowerCase();
+        let formId = row.cells[0].innerText;
+
+        let matchRow = rowText.includes(query);
+
+        let matchData = db.some(entry =>
+            entry.id === formId &&
+            entry.searchText.includes(query)
+        );
+
+        if(matchRow || matchData){
+            row.style.display = "";
+        } else {
+            row.style.display = "none";
+        }
+
+    });
+}

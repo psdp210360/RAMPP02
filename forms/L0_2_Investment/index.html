@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>L0-2 Investment & Capital Projects</title>
+
+<style>
+body { font-family: Arial; background:#eef2f7; margin:20px; }
+h2 { color:#1f3a5f; }
+
+.table-container {
+    background:white;
+    padding:15px;
+    border-radius:10px;
+}
+
+table { width:100%; border-collapse:collapse; }
+
+th {
+    background:#1f3a5f;
+    color:white;
+    padding:10px;
+}
+
+td {
+    padding:10px;
+    border-bottom:1px solid #ddd;
+}
+
+.tag { padding:4px 8px; border-radius:6px; }
+.html { background:#d1ecf1; }
+.excel { background:#d4edda; }
+
+button {
+    padding:6px 10px;
+    background:#1f3a5f;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+</style>
+
+<script>
+function openForm(path){ window.location.href = path; }
+</script>
+
+</head>
+
+<body>
+
+<h2>📊 L0-2 Investment & Capital Projects</h2>
+
+<div class="table-container">
+<table>
+
+<tr>
+<th>WBS</th>
+<th>Process</th>
+<th>Form</th>
+<th>Type</th>
+<th>Action</th>
+</tr>
+
+<tr>
+<td>FORM-2-2.1-01</td>
+<td>Acquisitions</td>
+<td>Investment Proposal</td>
+<td><span class="tag html">Form</span></td>
+<td><button onclick="openForm('FORM-2-2.1-01.html')">Open</button></td>
+</tr>
+
+<tr>
+<td>FORM-2-2.2-01</td>
+<td>Due Diligence</td>
+<td>Due Diligence Checklist</td>
+<td><span class="tag excel">Excel</span></td>
+<td><button onclick="openForm('../excel/FORM-2-2.2-01.xlsx')">Open</button></td>
+</tr>
+
+<tr>
+<td>FORM-2-2.3-01</td>
+<td>CAPEX</td>
+<td>CAPEX Approval</td>
+<td><span class="tag html">Form</span></td>
+<td><button onclick="openForm('FORM-2-2.3-01.html')">Open</button></td>
+</tr>
+
+<tr>
+<td>FORM-2-2.3-02</td>
+<td>CAPEX</td>
+<td>Project Status Report</td>
+<td><span class="tag excel">Excel</span></td>
+<td><button onclick="openForm('../excel/FORM-2-2.3-02.xlsx')">Open</button></td>
+</tr>
+
+</table>
+</div>
+
+</body>
+</html>

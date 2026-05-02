@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>RAM Global Forms Index</title>
+
+<style>
+body { font-family: Arial; background:#eef2f7; margin:20px; }
+
+h2 { color:#1f3a5f; }
+
+.toolbar {
+    display:flex;
+    gap:10px;
+    margin-bottom:15px;
+    flex-wrap:wrap;
+}
+
+input, select {
+    padding:8px;
+    border-radius:6px;
+    border:1px solid #ccc;
+}
+
+.table-container {
+    background:white;
+    padding:15px;
+    border-radius:10px;
+}
+
+table { width:100%; border-collapse:collapse; }
+
+th {
+    background:#1f3a5f;
+    color:white;
+    padding:10px;
+    cursor:pointer;
+}
+
+td {
+    padding:10px;
+    border-bottom:1px solid #ddd;
+}
+
+tr:hover { background:#f4f8fb; }
+
+.tag { padding:4px 8px; border-radius:6px; font-size:12px; }
+.html { background:#d1ecf1; }
+.excel { background:#d4edda; }
+</style>
+
+</head>
+
+<body>
+
+<h2>🌐 RAM Global Forms Index</h2>
+
+<div class="toolbar">
+
+<input id="search" placeholder="🔍 Super Search..." onkeyup="superSearch()">
+
+<select id="levelFilter" onchange="filterAll()">
+<option value="">All Levels</option>
+<option value="L0-1">L0-1</option>
+<option value="L0-2">L0-2</option>
+<option value="L0-3">L0-3</option>
+<option value="L0-4">L0-4</option>
+<option value="L0-5">L0-5</option>
+</select>
+
+<select id="typeFilter" onchange="filterAll()">
+<option value="">All Types</option>
+<option value="html">Form</option>
+<option value="excel">Excel</option>
+</select>
+
+</div>
+
+<div class="table-container">
+
+<table id="formsTable">
+
+<thead>
+<tr>
+<th onclick="sortTable(0)">WBS</th>
+<th onclick="sortTable(1)">Level</th>
+<th onclick="sortTable(2)">Process</th>
+<th onclick="sortTable(3)">Form Name</th>
+<th>Type</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody id="tableBody">
+
+<!-- SAMPLE ROWS (expand as needed) -->
+
+<tr data-level="L0-1" data-type="html">
+<td>FORM-1-1.2-02</td>
+<td>L0-1</td>
+<td>Planning</td>
+<td>Budget Approval</td>
+<td><span class="tag html">Form</span></td>
+<td><button onclick="go('L0_1_Strategy/FORM-1-1.2-02.html')">Open</button></td>
+</tr>
+
+<tr data-level="L0-2" data-type="html">
+<td>FORM-2-2.3-01</td>
+<td>L0-2</td>
+<td>CAPEX</td>
+<td>CAPEX Approval</td>
+<td><span class="tag html">Form</span></td>
+<td><button onclick="go('L0_2_Investment/FORM-2-2.3-01.html')">Open</button></td>
+</tr>
+
+<tr data-level="L0-4" data-type="html">
+<td>FORM-4-4.2-01</td>
+<td>L0-4</td>
+<td>Maintenance</td>
+<td>Maintenance Request</td>
+<td><span class="tag html">Form</span></td>
+<td><button onclick="go('L0_4_Operations/FORM-4-4.2-01.html')">Open</button></td>
+</tr>
+
+</tbody>
+</table>
+
+</div>
+
+<script>
+
+function go(path){
+    window.location.href = path;
+}
+
+// 🔍 SUPER SEARCH
+function superSearch(){
+
+    let query = document.getElementById("search").value.toLowerCase();
+    let db = JSON.parse(localStorage.getItem("RAM_DB")) || [];
+
+    document.querySelectorAll("#tableBody tr").forEach(row => {
+
+        let text = row.innerText.toLowerCase();
+        let formId = row.cells[0].innerText;
+
+        let matchRow = text.includes(query);
+
+        let matchData = db.some(entry =>
+            entry.id === formId &&
+            entry.searchText.includes(query)
+        );
+
+        row.style.display = (matchRow || matchData) ? "" : "none";
+    });
+}
+
+// 🎛 FILTER
+function filterAll(){
+
+    let level = document.getElementById("levelFilter").value;
+    let type = document.getElementById("typeFilter").value;
+
+    document.querySelectorAll("#tableBody tr").forEach(row => {
+
+        let matchLevel = !level || row.dataset.level === level;
+        let matchType = !type || row.dataset.type === type;
+
+        row.style.display = (matchLevel && matchType) ? "" : "none";
+    });
+}
+
+// 🔃 SORT
+function sortTable(col){
+
+    let table = document.getElementById("formsTable");
+    let rows = Array.from(table.rows).slice(1);
+
+    rows.sort((a,b) => 
+        a.cells[col].innerText.localeCompare(b.cells[col].innerText)
+    );
+
+    rows.forEach(row => table.appendChild(row));
+}
+
+</script>
+
+</body>
+</html>

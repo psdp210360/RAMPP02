@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>RAM Form</title>
+
+<style>
+body { font-family: Arial; background:#f4f6f8; padding:20px; }
+.container { background:white; padding:20px; border-radius:10px; }
+h2 { color:#1f3a5f; }
+label { display:block; margin-top:10px; }
+input, select, textarea {
+    width:100%; padding:8px; margin-top:5px;
+    border:1px solid #ccc; border-radius:5px;
+}
+button {
+    margin-top:15px;
+    background:#1f3a5f; color:white;
+    padding:10px 15px;
+    border:none; border-radius:5px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>FORM-2-2.3-01 CAPEX Approval</h2>
+
+<label>Project Name</label>
+<input type="text">
+
+<label>Budget Amount</label>
+<input type="number">
+
+<label>Justification</label>
+<textarea></textarea>
+
+<label>Approval Level</label>
+<select>
+<option>Manager</option>
+<option>Director</option>
+<option>CIO</option>
+</select>
+
+<button onclick="alert('Submitted')">Submit</button>
+
+</div>
+
+</body>
+</html>

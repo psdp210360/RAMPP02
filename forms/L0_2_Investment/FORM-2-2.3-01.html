@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CAPEX Approval</title>
+<script src="../js/core.js"></script>
+<style>
+body { font-family: Arial; background:#eef2f7; padding:20px; }
+.container { background:white; padding:20px; border-radius:10px; max-width:800px; margin:auto; }
+h2 { color:#1f3a5f; }
+label { display:block; margin-top:10px; }
+input, textarea, select { width:100%; padding:8px; margin-top:5px; }
+.actions { margin-top:15px; }
+button { padding:10px; margin-right:5px; }
+</style>
+</head>
+<body>
+
+<div class="container">
+<h2>FORM-2-2.3-01 - CAPEX Approval</h2>
+
+<label>Project</label><input name="project" type="text"><label>CAPEX Amount</label><input name="capex" type="number"><label>ROI (%)</label><input name="roi" type="number"><label>Approval Status</label><select name="status"><option>Pending</option><option>Approved</option><option>Rejected</option></select>
+
+<div class="actions">
+<button onclick="saveForm('FORM-2-2.3-01')">Save</button>
+<button onclick="exportPDF()">PDF</button>
+<button onclick="shareForm()">Share</button>
+</div>
+
+</div>
+
+</body>
+</html>

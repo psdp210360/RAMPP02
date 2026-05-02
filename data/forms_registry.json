@@ -1,0 +1,42 @@
+[
+  {
+    "id": "FORM-1-1.2-02",
+    "level": "L0-1",
+    "process": "Planning",
+    "name": "Budget Approval",
+    "type": "html",
+    "path": "L0_1_Strategy/FORM-1-1.2-02.html"
+  },
+  {
+    "id": "FORM-2-2.3-01",
+    "level": "L0-2",
+    "process": "CAPEX",
+    "name": "CAPEX Approval",
+    "type": "html",
+    "path": "L0_2_Investment/FORM-2-2.3-01.html"
+  },
+  {
+    "id": "FORM-3-3.2-01",
+    "level": "L0-3",
+    "process": "Leasing",
+    "name": "Lease Application",
+    "type": "html",
+    "path": "L0_3_Commercial/FORM-3-3.2-01.html"
+  },
+  {
+    "id": "FORM-4-4.2-01",
+    "level": "L0-4",
+    "process": "Maintenance",
+    "name": "Maintenance Request",
+    "type": "html",
+    "path": "L0_4_Operations/FORM-4-4.2-01.html"
+  },
+  {
+    "id": "FORM-5-5.2-01",
+    "level": "L0-5",
+    "process": "Procurement",
+    "name": "Purchase Request",
+    "type": "html",
+    "path": "L0_5_Corporate/FORM-5-5.2-01.html"
+  }
+]

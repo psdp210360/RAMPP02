@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>RAM Form</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f6f8;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px;
+        }
+    </style>
+
+    <script>
+        function exportPDF() {
+            window.print();
+            logAction("Exported PDF");
+        }
+
+        function exportWord() {
+            alert("Save page as .doc using browser");
+            logAction("Exported Word");
+        }
+
+        function shareForm() {
+            navigator.clipboard.writeText(window.location.href);
+            alert("Link copied!");
+            logAction("Shared Link");
+        }
+
+        function logAction(action) {
+            console.log("LOG:", action, new Date().toISOString());
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>FORM-2-2.3-01 CAPEX Approval</h2>
+
+        <label>Project Name</label><br>
+        <input type="text"><br>
+
+        <label>Budget</label><br>
+        <input type="number"><br>
+
+        <label>Justification</label><br>
+        <textarea></textarea><br><br>
+
+        <button onclick="exportPDF()">Export PDF</button>
+        <button onclick="exportWord()">Export Word</button>
+        <button onclick="shareForm()">Share</button>
+
+    </div>
+
+</body>
+
+</html>

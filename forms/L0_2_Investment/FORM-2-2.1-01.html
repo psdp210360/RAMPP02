@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Investment Proposal</title>
+<script src="../js/core.js"></script>
+<style>
+body { font-family: Arial; background:#eef2f7; padding:20px; }
+.container { background:white; padding:20px; border-radius:10px; max-width:800px; margin:auto; }
+h2 { color:#1f3a5f; }
+label { display:block; margin-top:10px; }
+input, textarea, select { width:100%; padding:8px; margin-top:5px; }
+.actions { margin-top:15px; }
+button { padding:10px; margin-right:5px; }
+</style>
+</head>
+<body>
+
+<div class="container">
+<h2>FORM-2-2.1-01 - Investment Proposal</h2>
+
+<label>Project Name</label><input name="project" type="text"><label>Investment Value</label><input name="value" type="number"><label>IRR (%)</label><input name="irr" type="number"><label>Risk Level</label><select name="risk"><option>Low</option><option>Medium</option><option>High</option></select><label>Description</label><textarea name="desc"></textarea>
+
+<div class="actions">
+<button onclick="saveForm('FORM-2-2.1-01')">Save</button>
+<button onclick="exportPDF()">PDF</button>
+<button onclick="shareForm()">Share</button>
+</div>
+
+</div>
+
+</body>
+</html>

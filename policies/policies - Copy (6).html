@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>RAM Policies & Governance</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #eef2f7;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #1f3a5f;
+        }
+
+        /* ===== L0 COLORS ===== */
+        .l0-1 {
+            background: #2c3e50;
+        }
+
+        .l0-2 {
+            background: #8e44ad;
+        }
+
+        .l0-3 {
+            background: #16a085;
+        }
+
+        .l0-4 {
+            background: #d35400;
+        }
+
+        .l0-5 {
+            background: #34495e;
+        }
+
+        /* ===== SECTION ===== */
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .l0-header {
+            color: white;
+            padding: 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        /* ===== CONTENT ===== */
+        .card {
+            display: none;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ===== POLICY ===== */
+        .policy {
+            margin-top: 15px;
+            padding: 15px;
+            background: #f8fbff;
+            border-left: 6px solid #1f3a5f;
+            border-radius: 6px;
+        }
+
+        .meta {
+            font-size: 13px;
+            margin-bottom: 10px;
+            color: #444;
+        }
+
+        .stars {
+            color: gold;
+        }
+
+        .link {
+            color: #1f3a5f;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .policy h3 {
+            margin-top: 0;
+        }
+
+        ul {
+            margin-top: 5px;
+        }
+    </style>
+
+    <script>
+        function toggle(id) {
+            let el = document.getElementById(id);
+
+            if (el.style.display === "block") {
+                el.style.display = "none";
+            } else {
+                el.style.display = "block";
+            }
+        }
+
+        function go(path) {
+            window.location.href = path;
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <h1>📘 RAM Governance Policies System</h1>
+
+    <p>
+        Integrated policy framework linking governance → processes → work instructions → forms → reporting.
+    </p>
+
+    <!-- ================= L0-1 ================= -->
+
+    <div class="section">
+        <div class="l0-header l0-1" onclick="toggle('L01')">
+            📊 L0-1 Strategy & Portfolio Management
+        </div>
+
+        <div id="L01" class="card">
+
+            <div class="policy">
+
+                <h3>Corporate Strategy & Portfolio Policy</h3>
+
+                <div class="meta">
+                    Owner: CIO | Importance: <span class="stars">★★★★★</span>
+                </div>
+
+                <b>Description:</b>
+                <p>
+                    Defines RAM’s strategic direction and portfolio alignment ensuring all investment,
+                    commercial, and operational activities follow a unified strategy.
+                </p>
+
+                <b>Processes:</b>
+                <ul>
+                    <li>L1-1.1 Portfolio Strategy</li>
+                    <li>L1-1.2 Investment Planning</li>
+                    <li>L1-1.3 Performance Management</li>
+                </ul>
+
+                <b>Work Instructions:</b>
+                <ul>
+                    <li>Maintain segmentation register</li>
+                    <li>Run portfolio analytics</li>
+                </ul>
+
+                <b>Forms:</b>
+                <ul>
+                    <li class="link" onclick="go('L0_1_Strategy/FORM-1-1.1-01.html')">Portfolio Strategy</li>
+                    <li class="link" onclick="go('L0_1_Strategy/FORM-1-1.3-01.html')">Performance Review</li>
+                </ul>
+
+                <b>Case Example:</b>
+                <ul>
+                    <li>Underperformance → trigger corrective action plan</li>
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ================= L0-2 ================= -->
+
+    <div class="section">
+        <div class="l0-header l0-2" onclick="toggle('L02')">
+            🏗 L0-2 Investment & Capital Projects
+        </div>
+
+        <div id="L02" class="card">
+
+            <div class="policy">
+
+                <h3>Investment & CAPEX Policy</h3>
+
+                <div class="meta">
+                    Owner: Investment Committee | Importance: <span class="stars">★★★★★</span>
+                </div>
+
+                <b>Description:</b>
+                <p>
+                    Controls all investment and capital expenditure ensuring financial viability,
+                    risk mitigation, and strategic alignment.
+                </p>
+
+                <b>Processes:</b>
+                <ul>
+                    <li>L1-2.1 Acquisition</li>
+                    <li>L1-2.2 Due Diligence</li>
+                    <li>L1-2.3 CAPEX</li>
+                </ul>
+
+                <b>Work Instructions:</b>
+                <ul>
+                    <li>Prepare business case</li>
+                    <li>Create project in SAP</li>
+                </ul>
+
+                <b>Forms:</b>
+                <ul>
+                    <li class="link" onclick="go('L0_2_Investment/FORM-2-2.3-01.html')">CAPEX Approval</li>
+                </ul>
+
+                <b>Case Example:</b>
+                <ul>
+                    <li>Budget overrun → escalate to IC</li>
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ================= L0-3 ================= -->
+
+    <div class="section">
+        <div class="l0-header l0-3" onclick="toggle('L03')">
+            💰 L0-3 Commercial Management
+        </div>
+
+        <div id="L03" class="card">
+
+            <div class="policy">
+
+                <h3>Leasing & Pricing Policy</h3>
+
+                <div class="meta">
+                    Owner: Commercial Head | Importance: <span class="stars">★★★★★</span>
+                </div>
+
+                <b>Description:</b>
+                <p>
+                    Ensures revenue generation through structured leasing, pricing, and tenant lifecycle management.
+                </p>
+
+                <b>Processes:</b>
+                <ul>
+                    <li>L1-3.2 Leasing</li>
+                    <li>L1-3.4 Pricing Optimization</li>
+                </ul>
+
+                <b>Work Instructions:</b>
+                <ul>
+                    <li>Update rent in SAP RE-FX</li>
+                    <li>Process lease renewals</li>
+                </ul>
+
+                <b>Forms:</b>
+                <ul>
+                    <li class="link" onclick="go('L0_3_Commercial/FORM-3-3.2-01.html')">Lease Application</li>
+                </ul>
+
+                <b>Case Example:</b>
+                <ul>
+                    <li>Unauthorized discount → contract rejection</li>
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ================= L0-4 ================= -->
+
+    <div class="section">
+        <div class="l0-header l0-4" onclick="toggle('L04')">
+            🏢 L0-4 Asset Operations
+        </div>
+
+        <div id="L04" class="card">
+
+            <div class="policy">
+
+                <h3>Operations & Maintenance Policy</h3>
+
+                <div class="meta">
+                    Owner: Head of FM | Importance: <span class="stars">★★★★★</span>
+                </div>
+
+                <b>Description:</b>
+                <p>
+                    Ensures operational excellence, asset safety, and tenant satisfaction across all properties.
+                </p>
+
+                <b>Processes:</b>
+                <ul>
+                    <li>L1-4.2 Maintenance</li>
+                    <li>L1-4.3 Tenant Services</li>
+                    <li>L1-4.5 HSE</li>
+                </ul>
+
+                <b>Work Instructions:</b>
+                <ul>
+                    <li>Create work orders (SAP PM)</li>
+                    <li>Log tenant requests</li>
+                    <li>Record incidents</li>
+                </ul>
+
+                <b>Forms:</b>
+                <ul>
+                    <li class="link" onclick="go('L0_4_Operations/FORM-4-4.2-01.html')">Maintenance Request</li>
+                    <li class="link" onclick="go('L0_4_Operations/FORM-4-4.5-01.html')">Incident Report</li>
+                </ul>
+
+                <b>Case Example:</b>
+                <ul>
+                    <li>Safety incident → investigation + CAPA</li>
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ================= L0-5 ================= -->
+
+    <div class="section">
+        <div class="l0-header l0-5" onclick="toggle('L05')">
+            ⚙ L0-5 Corporate Services
+        </div>
+
+        <div id="L05" class="card">
+
+            <div class="policy">
+
+                <h3>Corporate Governance Policy</h3>
+
+                <div class="meta">
+                    Owner: CFO | Importance: <span class="stars">★★★★★</span>
+                </div>
+
+                <b>Description:</b>
+                <p>
+                    Ensures financial control, HR management, IT security, and compliance across the organization.
+                </p>
+
+                <b>Processes:</b>
+                <ul>
+                    <li>L1-5.1 Finance</li>
+                    <li>L1-5.2 Procurement</li>
+                    <li>L1-5.3 HR</li>
+                    <li>L1-5.4 IT</li>
+                    <li>L1-5.5 Compliance</li>
+                </ul>
+
+                <b>Work Instructions:</b>
+                <ul>
+                    <li>Post journal entries</li>
+                    <li>Create purchase request</li>
+                    <li>Manage IT incidents</li>
+                </ul>
+
+                <b>Forms:</b>
+                <ul>
+                    <li class="link" onclick="go('L0_5_Corporate/FORM-5-5.2-01.html')">Purchase Request</li>
+                </ul>
+
+                <b>Case Example:</b>
+                <ul>
+                    <li>Procurement violation → audit investigation</li>
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<h2>FORM-1-1.3-02 Action Tracker</h2>
+
+<table border="1" width="100%">
+<tr>
+<th>Action</th>
+<th>Owner</th>
+<th>Due Date</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td><input name="action1"></td>
+<td><input name="owner1"></td>
+<td><input type="date" name="date1"></td>
+<td>
+<select name="status1">
+<option>Open</option>
+<option>In Progress</option>
+<option>Closed</option>
+</select>
+</td>
+</tr>
+
+</table>

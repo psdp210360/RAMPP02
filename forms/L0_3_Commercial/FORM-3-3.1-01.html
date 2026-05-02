@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Marketing Plan</title>
+<style>
+body { font-family: Arial; background:#f4f6f8; padding:20px; }
+.container { background:white; padding:20px; border-radius:10px; max-width:700px; margin:auto; }
+input, textarea, select { width:100%; margin-bottom:10px; padding:8px; }
+button { padding:10px; margin-right:5px; }
+</style>
+
+<script>
+function exportPDF(){ window.print(); }
+function shareForm(){ navigator.clipboard.writeText(window.location.href); alert("Link copied"); }
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+<h2>FORM-3-3.1-01 - Marketing Plan</h2>
+
+<label>Field 1</label>
+<input type="text">
+
+<label>Field 2</label>
+<input type="text">
+
+<label>Description</label>
+<textarea></textarea>
+
+<button onclick="exportPDF()">Export PDF</button>
+<button onclick="shareForm()">Share</button>
+
+</div>
+
+</body>
+</html>
